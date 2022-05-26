@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/main_nav_graph"
+  app:startDestination="@id/userInfoFragment">
+
+  <fragment
+    android:id="@+id/scanReceiveFragment"
+    android:name="com.example.bleTransfer.ScanReceiveFragment"
+    android:label="Nearby BLE">
+    <argument
+      android:name="deviceName"
+      app:argType="string"
+      app:nullable="true" />
+
+    <argument
+      android:name="phoneNo"
+      app:argType="string"
+      app:nullable="true" />
+    <argument
+      android:name="upiId"
+      app:argType="string"
+      app:nullable="true" />
+    <action
+      android:id="@+id/action_scanReceiveFragment_to_transferFragment"
+      app:destination="@id/transferFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/userInfoFragment"
+    android:name="com.example.bleTransfer.UserInfoFragment"
+    android:label="Enter Details" />
+  <fragment
+    android:id="@+id/transferFragment"
+    android:name="com.example.bleTransfer.TransferFragment"
+    android:label="TransferFragment">
+    <argument
+      android:name="receivedContact"
+      android:defaultValue=""
+      app:argType="string"
+      app:nullable="false" />
+  </fragment>
+</navigation>
